@@ -6,6 +6,7 @@ import com.sevan.hellospring.annotation.CleanupBean;
 import com.sevan.hellospring.annotation.InitBean;
 import com.sevan.hellospring.bean.SampleBean;
 import com.sevan.hellospring.event.EmailService;
+import com.sevan.hellospring.typecast.CustomType;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
@@ -60,6 +61,12 @@ public class TestSpring {
         emailService.sendMail("known.hacker@example.org", "test mail");
         emailService.sendMail("john.doe@example.org", "test mail");
         emailService.sendMail("sevan.doe@example.org", "test mail");
+    }
+    
+    private static void testTypeCast() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beans/beantype.xml");
+        String name = "Hello";
+//        CustomType customType = (CustomType) name;
     }
 
 }

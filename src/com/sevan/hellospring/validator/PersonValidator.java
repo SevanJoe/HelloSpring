@@ -1,4 +1,4 @@
-package com.sevan.hellospring.event.validator;
+package com.sevan.hellospring.validator;
 
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;

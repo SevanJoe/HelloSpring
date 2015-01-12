@@ -1,4 +1,4 @@
-package com.sevan.hellospring.event.validator;
+package com.sevan.hellospring.validator;
 
 public class Person {
 

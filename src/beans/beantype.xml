@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="customType" class="com.sevan.hellospring.typecast.CustomType">
+        <property name="name" value="myCustomName"/>
+    </bean>
+
+    <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+    <!--  
+        <property name="customEditors">
+            <map>
+                <entry key="com.sevan.hellospring.typecast.CustomType" 
+                value="com.sevan.hellospring.typecast.CustomTypeEditor"/>
+            </map>
+        </property>
+    -->
+        <property name="propertyEditorRegistrar">
+            <list>
+                <ref bean="customPropertyEditorRegistrar"/>
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="customPropertyEditorRegistrar" class="com.sevan.hellospring.typecast.CustomPropertyEditorRegistrar"/>
+
+</beans>
