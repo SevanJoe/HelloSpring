@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="sampleFactory" class="com.sevan.hellospring.SampleFactory"/>
+    <bean id="factoryBean" class="com.sevan.hellospring.SampleBean"
+        factory-bean="sampleFactory" factory-method="newInstance"/>
+        
+</beans>
