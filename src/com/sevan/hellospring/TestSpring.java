@@ -4,6 +4,7 @@ import com.sevan.hellospring.annotation.AnnotationBean;
 import com.sevan.hellospring.annotation.AppConfig;
 import com.sevan.hellospring.annotation.CleanupBean;
 import com.sevan.hellospring.annotation.InitBean;
+import com.sevan.hellospring.aop.FooService;
 import com.sevan.hellospring.bean.SampleBean;
 import com.sevan.hellospring.event.EmailService;
 import com.sevan.hellospring.typecast.CustomType;
@@ -19,7 +20,9 @@ public class TestSpring {
     public static void main(String[] args) {
 //        testAnnotation();
         
-        testEvent();
+//        testEvent();
+        
+        testAOP();
         
 //        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beans/beanpost.xml");
 //        Messenger messenger = (Messenger) applicationContext.getBean("messenger");
@@ -67,6 +70,12 @@ public class TestSpring {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beans/beantype.xml");
         String name = "Hello";
 //        CustomType customType = (CustomType) name;
+    }
+    
+    private static void testAOP() {
+        BeanFactory beanFactory = new ClassPathXmlApplicationContext("beans/beanaop.xml");
+        FooService fooService = (FooService) beanFactory.getBean("fooService");
+        fooService.getFoo("Sevan Joe", 24);
     }
 
 }
